@@ -4,9 +4,30 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('dog', {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull : false,
+      primaryKey: true,
+    },
+    image: {
+      type: DataTypes.BLOB,
+      allowNull: false
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    altura: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    peso: {
+      type:DataTypes.FLOAT,
+      allowNull: false
+    },
+    edad: {
+      type: DataTypes.INTEGER, //Uso integer para almacenar el numero de años
+      allowNull: false
+    }
   });
 };
