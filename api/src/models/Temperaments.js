@@ -4,7 +4,7 @@ const {DataTypes} = require('sequelize')
 module.exports = (sequelize) => {
     sequelize.define('Temperaments', {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID, //ID
             primaryKey: true,
             allowNull: false
         },
