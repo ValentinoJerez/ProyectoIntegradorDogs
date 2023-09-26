@@ -4,7 +4,7 @@ const {Dog} = require('../db')
 const axios = require("axios")
 
 
-const getDogs = async () => {
+const get = async () => {
     try {
         const response = await axios.get("https://api.thedogapi.com/v1/breeds")
         return response.data;
@@ -13,4 +13,4 @@ const getDogs = async () => {
     }
 }
 
-module.exports = getDogs;
+module.exports = get;

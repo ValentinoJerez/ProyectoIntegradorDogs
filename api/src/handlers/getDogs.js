@@ -1,5 +1,5 @@
 //Importaciones
-const getDogs = require("../controllers/getDogs")
+const get = require("../controllers/getDogs")
 
 const getDogs = async (req, res) => {
     try {
