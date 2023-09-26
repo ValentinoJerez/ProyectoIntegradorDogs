@@ -1,16 +1,15 @@
 //Importo DataTypes
-const {DataTypes} = require('sequelize')
+const {DataTypes, UUIDV4} = require('sequelize')
 
 module.exports = (sequelize) => {
     sequelize.define('Temperaments', {
         id: {
             type: DataTypes.UUID, //ID
+            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            allowNull: false
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
         }
     })
 };

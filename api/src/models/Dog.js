@@ -6,12 +6,12 @@ module.exports = (sequelize) => {
   sequelize.define('dog', {
     id: {
       type: DataTypes.UUID,  //ID
-      defaultValue: UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       allowNull : false,
       primaryKey: true,
     },
-    image: {
-      type: DataTypes.BLOB,
+    reference_image_id: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     name: {
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     weight: {
-      type:DataTypes.FLOAT,
+      type:DataTypes.INTEGER,
       allowNull: false
     },
     life_span: {

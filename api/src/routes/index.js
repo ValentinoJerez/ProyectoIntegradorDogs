@@ -14,9 +14,9 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/dogs", getDogs)
-// router.get("/dogs:idRaza", getDogsById);
-// router.get("/dogs/name?=", getDogsByName);
+router.get("/dogs/:idRaza", getDogsById);
+// router.get("/dogs/?name=", getDogsByName);
 router.post("/dogs", createDogs);
-// router.get("/temperaments", getTemperaments);
+router.get("/temperaments", getTemperaments);
 
 module.exports = router;
