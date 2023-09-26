@@ -5,12 +5,8 @@ const axios = require("axios")
 
 
 const get = async () => {
-    try {
         const response = await axios.get("https://api.thedogapi.com/v1/breeds")
         return response.data;
-    } catch (error) {
-        throw new Error("Error")
-    }
 }
 
 module.exports = get;
