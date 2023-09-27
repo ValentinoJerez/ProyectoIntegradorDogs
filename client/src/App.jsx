@@ -3,6 +3,7 @@ import {Routes, Route, useLocation} from "react-router-dom"
 import LandingPage from "../src/views/LandingPage/LandingPage"
 import Home from "../src/views/Home/Home"
 import About from "../src/views/About/About"
+import Detail from "../src/views/Detail/Detail"
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/Home" element={<Home/>}/>
         <Route path="/About" element={<About/>}/>
+        <Route path="/Detail" element={<Detail/>}/>
       </Routes>
     </div>
   )
