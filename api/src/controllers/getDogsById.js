@@ -3,13 +3,13 @@
 const {Dog} = require("../db")
 const axios = require("axios")
 
-const getDogsId = async (idRaza) => {
-    //BUsco BD
-    const dogFromDB = await Dog.findAll({where: {name: idRaza}})
+const getDogsId = async (id) => {
+    //Busco BD
+    const dogFromDB = await Dog.findAll({where: {name: id}})
     //Busco Api
-    const response = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${idRaza}`) 
+    const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`) 
     const dogFromApi = response.data //Destructuring
-    //DEVUELVO AMBAS
+    //Devuelvo ambos
     return dogFromDB.concat(dogFromApi);
 }
 
