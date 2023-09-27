@@ -7,14 +7,14 @@ import About from "../src/views/About/About"
 import './App.css';
 
 function App() {
-  const location = useLocation()
+  // const location = useLocation()
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<LandingPage />}/>
-        <Route path="/Home" element={<Home />}/>
-        <Route path="/About" element={<About />}/>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/Home" element={<Home/>}/>
+        <Route path="/About" element={<About/>}/>
       </Routes>
     </div>
   )
