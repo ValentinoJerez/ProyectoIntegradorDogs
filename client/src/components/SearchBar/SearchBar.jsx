@@ -3,7 +3,6 @@ import style from "../SearchBar/SearchBar.module.css"
 function SearchBar(props){
     //Traigo la fn search
     const {search} = props
-    
   
     //Hago que el valor se guarde
    function changeHandler(event){
