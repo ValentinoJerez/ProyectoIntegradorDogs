@@ -3,7 +3,6 @@ const {Dog} = require("../db")
 const axios = require("axios")
 
 const getDogsName = async (name) => {
-          //Recibo name:
           //Busco BD
           const dogFromDB = await Dog.findAll({where: {name: name}})
           //Busco Api
@@ -12,7 +11,6 @@ const getDogsName = async (name) => {
           const dogFromApi = response.data 
           //Devuelvo ambas
           return dogFromDB.concat(dogFromApi);
-
 }
 
 module.exports = getDogsName;
