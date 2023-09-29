@@ -30,7 +30,7 @@ function App() {
       {location.pathname !== "/" && <NavBar onSearch={search}/>}
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
-        <Route path="/Home" element={<Home/>}/>
+        <Route path="/Home" element={<Home />}/>
         <Route path="/About" element={<About/>}/>
         <Route path="/Detail" element={<Detail/>}/>
       </Routes>
