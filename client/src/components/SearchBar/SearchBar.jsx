@@ -1,24 +1,32 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
+
+
 import style from "../SearchBar/SearchBar.module.css"
 
-function SearchBar(props){
-    //Traigo la fn search
-    const {search} = props
-    //Estado local
-    const [name, setName] = useState("")
-  
+function SearchBar(){
+    //Cambia el estado 
+    // const [name, setName] = useState("")
+    // const dispatch = useDispatch()
+
+    // const searchName = (name) => {
+    //     dispatch(searchDog(name))
+    //     setName("")
+    // } 
+
     //Hago que el valor se guarde
-   function changeHandler(event){
-    //Previene bug 
-    event.preventDefault();
-    let input= event.target.value;
-    setName(input);
- }
+//    function changeHandler(event){
+//     //Previene bug 
+//     // event.preventDefault();
+
+//     const {value} = event.target;
+//     setName(value);
+//     }
 
     return(
         <div>
-            <input type="Search" placeholder="Search" onChange={changeHandler}/>
-            <button onClick={search}>Search</button>
+            <input type="Text" placeholder="Search"/>
+            <button>Search</button>
         </div>
     )
 }

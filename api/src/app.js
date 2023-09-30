@@ -15,7 +15,7 @@ server.use(bodyParser.json({ limit: '50mb' })); //se encarga de analizar el cuer
 server.use(cookieParser()); //analiza las cookies que vienen con las solicitudes
 server.use(morgan('dev')); //registra información sobre las solicitudes HTTP en la consola
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); //Permite solicitudes desde la URL
+  res.header('Access-Control-Allow-Origin', '*'); //Permite solicitudes desde la URL
   res.header('Access-Control-Allow-Credentials', 'true'); //Las credenciales pueden ser incluidas en la solicitud
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); //Encabezados que se permiten en la solicitud
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE'); //Métodos HTTP permitidos en la solicitud

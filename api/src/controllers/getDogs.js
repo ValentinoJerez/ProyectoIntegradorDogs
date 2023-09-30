@@ -1,4 +1,3 @@
-// Tipo GET
 // Importaciones
 const {Dog} = require('../db')
 const axios = require("axios")
