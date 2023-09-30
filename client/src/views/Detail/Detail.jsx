@@ -10,6 +10,7 @@ function Detail({ dogs }){
             <p>{life_span}</p>
             <p>{temperament}</p>
             <p>{origin}</p>
+            <img src={reference_image_id} alt="Image Dog"/>
         </div>
     )
 }

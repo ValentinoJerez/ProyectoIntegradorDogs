@@ -7,7 +7,7 @@ function Card({ dogs }){
     const {name, weight, temperament, reference_image_id} = dogs
 
     function navigateDetail(){
-        navigate(`/Detail/${dogs.id}`);
+        navigate(`/Detail/${id}`);
     }
 
     return (
