@@ -6,13 +6,18 @@ function Card({ dogs }){
     //Informacion que quiero
     const {name, weight, temperament, reference_image_id} = dogs
 
+    function navigateDetail(){
+        navigate(`/Detail/${dogs.id}`);
+    }
 
     return (
         <div>
-            <h1>{name}</h1>
-            <p>{weight.metric}</p>
-            <p>{temperament}</p>
-            <img src={reference_image_id}/>
+            <div>
+                <h1 onClick={navigateDetail}>{name}</h1>
+                <p>{weight.metric}</p>
+                <p>{temperament}</p>
+                <img src={reference_image_id}/>
+            </div>
         </div>
     )
 }
