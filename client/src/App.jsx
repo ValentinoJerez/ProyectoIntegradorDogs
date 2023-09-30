@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       {/* Mientras que la ruta sea diferente a "/" se debe mostrar la NavBar */}
-      {location.pathname !== "/" && <NavBar />}
+      {/* {location.pathname !== "/" && <NavBar />} */}
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/Home" element={<Home />}/>

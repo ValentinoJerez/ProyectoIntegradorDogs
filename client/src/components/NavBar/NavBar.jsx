@@ -2,10 +2,10 @@ import SearchBar from "../SearchBar/SearchBar";
 
 import style from "../NavBar/NavBar.module.css"
 
-function NavBar(){
+function NavBar({changeHandler, submitHandler}){
     return(
         <div>
-            <SearchBar/>
+            <SearchBar changeHandler={changeHandler} submitHandler={submitHandler}/>
         </div>
     )
 }
