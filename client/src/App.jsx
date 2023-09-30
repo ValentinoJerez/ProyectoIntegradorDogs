@@ -13,21 +13,10 @@ import './App.css';
 function App() {
   const location = useLocation()
 
-  //Search
-//   async function search(name){
-//     try {
-//         const response = await fetch(`/api/getDogsByName?name=${name}`);
-//         const data = await response.json();
-//         setDogs(data);
-//       } catch (error) {
-//         console.error('Error al buscar perros:', error);
-//       }
-// }
-
   return (
     <div className="App">
       {/* Mientras que la ruta sea diferente a "/" se debe mostrar la NavBar */}
-      {/* {location.pathname !== "/" && <NavBar />} */}
+      {location.pathname !== "/" && <NavBar />}
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/Home" element={<Home />}/>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getByName, getInfoDogs } from "../../Redux/Actions/actions";
 
 import NavBar from "../../components/NavBar/NavBar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import Cards from "../../components/Cards/Cards";
 
 import style from "../Home/Home.module.css"
@@ -25,17 +26,6 @@ function Home(){
         dispatch(getByName(searchRaza))
     }
 
-    //Search filtro sobre estado
-    //Creo estado local 
-    // const [filtrados, setFiltrados] = useState(allDogs);
-
-
-    // function submitHandler(event){
-    //     //Devuelve los perros que incluyan lo que se busca 
-    //     const filtrados = allDogs.filter(dogs => dogs.name.toLowerCase().includes(searchRaza))
-    //     setFiltrados(filtrados)
-    // }
-
     //GetAll
     useEffect(()=>{
         dispatch(getInfoDogs())
@@ -47,9 +37,11 @@ function Home(){
 
     return (
         <div>
-            <NavBar changeHandler={changeHandler} submitHandler={submitHandler}/>
+            {/* <NavBar changeHandler={changeHandler} submitHandler={submitHandler}/> */}
             <h1>Home</h1>
+            <SearchBar changeHandler={changeHandler} submitHandler={submitHandler}/>
             <Cards allDogs={allDogs}/> 
+            {/* Filtros */}
         </div>
     )
 }
