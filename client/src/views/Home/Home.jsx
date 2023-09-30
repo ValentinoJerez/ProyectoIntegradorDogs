@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getByName, getInfoDogs } from "../../Redux/Actions/actions";
 
-import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Cards from "../../components/Cards/Cards";
 
@@ -37,7 +36,6 @@ function Home(){
 
     return (
         <div>
-            {/* <NavBar changeHandler={changeHandler} submitHandler={submitHandler}/> */}
             <h1>Home</h1>
             <SearchBar changeHandler={changeHandler} submitHandler={submitHandler}/>
             <Cards allDogs={allDogs}/> 

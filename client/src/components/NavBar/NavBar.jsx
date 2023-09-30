@@ -7,9 +7,9 @@ function NavBar({changeHandler, submitHandler}){
     return(
         <div>
             <NavLink to="/Home">Home</NavLink>
+            <NavLink to="/Create">Create your Dog</NavLink>
             <NavLink to="/About">About</NavLink>
             <NavLink to="/">Exit</NavLink>
-            {/* <SearchBar changeHandler={changeHandler} submitHandler={submitHandler}/> */}
         </div>
     )
 }
