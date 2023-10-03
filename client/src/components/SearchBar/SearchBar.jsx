@@ -9,9 +9,6 @@ function SearchBar({changeHandler, submitHandler}){
     const dispatch = useDispatch()
     const [searchRaza, setSearchRaza] = useState("");
 
-    function onClickHandler(){
-        dispatch(getInfoDogs())
-    }
     
     function changeHandler(event){
         //No resetea la pagina
@@ -19,7 +16,7 @@ function SearchBar({changeHandler, submitHandler}){
         //Setea 
         setSearchRaza(event.target.value.toLowerCase())
     }
-
+    
     //Search filtro BackEnd
     function submitHandler(event){
         event.preventDefault()
@@ -27,12 +24,16 @@ function SearchBar({changeHandler, submitHandler}){
         //Limpia estado
         setSearchRaza("")
     }
-
+    
+    function clearHandler(){
+        dispatch(getInfoDogs())
+    }
+    
     return(
         <div>
             <input type="Search" placeholder="Search" value={searchRaza} onChange={(event) => changeHandler(event)}/>
             <button type="Submit" onClick={submitHandler}>Search</button>
-            <button onClick={onClickHandler}>Clear</button>
+            <button onClick={clearHandler}>Clear</button>
         </div>
     )
 }
