@@ -12,7 +12,6 @@ import style from "../Home/Home.module.css"
 function Home(){
     const dispatch = useDispatch() //Envio action al store
     const allDogs = useSelector((state) => state.allDogs) //Estado global
-    const Items = allDogs;
     
     //Paginado
     const prevPage = () => {
@@ -39,7 +38,7 @@ function Home(){
             <Cards allDogs={allDogs}/> 
             {/* Filtros */}
             {/* Paginado */}
-            <Paginado currentPagge={0} Items={Items} nextPage={nextPage} prevPage={prevPage} />
+            <Paginado currentPagge={0} nextPage={nextPage} prevPage={prevPage} />
         </div>
     )
 }
