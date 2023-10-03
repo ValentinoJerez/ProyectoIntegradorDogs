@@ -5,7 +5,7 @@ function Create(){
 
     return (
         <div className={style.container}>
-            <h1>Create</h1>
+            <h1>Create your dog: </h1>
             <form className={style.form}> 
                 <label>Name: <input /></label>
                 <label>Height: <label> Altura Min:<input /></label> <label>Altura Max:<input /></label> </label>
