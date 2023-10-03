@@ -27,7 +27,7 @@ function Detail(){
             <p>Esperanza de vida: {dogs.life_span}</p>
             <p>Temperamento: {dogs.temperament}</p>
             <p>Origen: {dogs.origin}</p>
-            <img src={dogs.reference_image_id} alt="Image Dog"/>
+            <img src={`https://cdn2.thedogapi.com/images/${dogs.reference_image_id}.jpg`} alt="Image Dog"/>
         </div>
     )
 }

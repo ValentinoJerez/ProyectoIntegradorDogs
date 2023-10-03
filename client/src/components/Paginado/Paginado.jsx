@@ -8,9 +8,6 @@ function Paginado({nextPage, prevPage, currentPage}){
             <button onClick={prevPage}>Prev</button>
             <button onClick={nextPage}>Next</button>
             <h2>Cards</h2>
-            <ul>
-                <li>Cards</li>
-            </ul>
         </div>
     )
 }

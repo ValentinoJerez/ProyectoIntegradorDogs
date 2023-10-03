@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getInfoDogs } from "../../Redux/Actions/actions";
@@ -12,6 +12,8 @@ import style from "../Home/Home.module.css"
 function Home(){
     const dispatch = useDispatch() //Envio action al store
     const allDogs = useSelector((state) => state.allDogs) //Estado global
+    const cards_Per_Page = 8 
+    const [currentPage, setCurrentPage] = useState(0);
     
     //Paginado
     const prevPage = () => {
@@ -35,10 +37,10 @@ function Home(){
         <div>
             <h1>Home</h1>
             <SearchBar />
+            {/* Paginado */}
+            <Paginado currentPage={currentPage} nextPage={nextPage} prevPage={prevPage}/>
             <Cards allDogs={allDogs}/> 
             {/* Filtros */}
-            {/* Paginado */}
-            <Paginado currentPagge={0} nextPage={nextPage} prevPage={prevPage} />
         </div>
     )
 }
