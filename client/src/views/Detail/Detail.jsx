@@ -1,16 +1,33 @@
-function Detail({ dogs }){
-    const {weight, height, name, bred_for, breed_group, life_span, temperament, origin, reference_image_id} = dogs
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+
+
+function Detail(){
+    //Permite acceder a los parametros de la URL
+    const {id} = useParams();
+    const [dogs, setDogs] = useState([])
+
+    useEffect(()=>{
+        axios.get(`http://localhost:3001/dogs/${id}`).then(({data})=>{
+            if(data.name){
+                setDogs(data);
+            }
+        })
+        return setDogs({});
+    }, []);
+
     return(
         <div>
-            <h1>{name}</h1>
-            <p>{weight.metric}</p>
-            <p>{height.metric}</p>
-            <p>{bred_for}</p>
-            <p>{breed_group}</p>
-            <p>{life_span}</p>
-            <p>{temperament}</p>
-            <p>{origin}</p>
-            <img src={reference_image_id} alt="Image Dog"/>
+            <h1>{dogs.name}</h1>
+            <p>{dogs.weight}</p>
+            <p>{dogs.height}</p>
+            <p>{dogs.bred_for}</p>
+            <p>{dogs.breed_group}</p>
+            <p>{dogs.life_span}</p>
+            <p>{dogs.temperament}</p>
+            <p>{dogs.origin}</p>
+            <img src={dogs.reference_image_id} alt="Image Dog"/>
         </div>
     )
 }

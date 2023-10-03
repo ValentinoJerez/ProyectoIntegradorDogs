@@ -4,10 +4,11 @@ import style from "../Card/Card.module.css"
 
 function Card({ dogs }){
     //Informacion que quiero
-    const {name, weight, temperament, reference_image_id} = dogs
+    const {name, weight, temperament, reference_image_id} = dogs;
+    const navigate = useNavigate();
 
     function navigateDetail(){
-        navigate(`/Detail/${id}`);
+        navigate(`/Detail/${dogs.id}`);
     }
 
     return (
