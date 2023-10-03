@@ -20,6 +20,7 @@ function Detail(){
     return(
         <div>
             <h1>{dogs?.name}</h1>
+            <p>Id: {dogs.id}</p>
             <p>Peso: {dogs.weight?.metric} kg</p>
             <p>Altura: {dogs.height?.metric} cm</p>
             <p>Criado para: {dogs.bred_for}</p>

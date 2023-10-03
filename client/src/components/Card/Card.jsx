@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
+import DefaultImage from "../../assets/IMG_20181222_172509.jpg"
 import style from "../Card/Card.module.css"
 
 function Card({ dogs }){
@@ -13,11 +14,12 @@ function Card({ dogs }){
 
     return (
         <div>
-            <div>
-                <h1 onClick={navigateDetail}>{name}</h1>
-                <p>{weight.metric}</p>
-                <p>{temperament}</p>
-                <img src={`https://cdn2.thedogapi.com/images/${reference_image_id}.jpg`} alt="Image Dog"/>
+            <div onClick={navigateDetail} className={style.Card}>
+                <h1 >{name}</h1>
+                {/* <p>Weight: {weight.metric}</p> */}
+                {/* <p>Temperament: {temperament}</p> */}
+                {/* Me pregunto si hay una imagen, si no pongo una por default */}
+                <img src={reference_image_id ? `https://cdn2.thedogapi.com/images/${reference_image_id}.jpg` : DefaultImage} alt="Image Dog"/>
             </div>
         </div>
     )

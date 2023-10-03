@@ -1,0 +1,16 @@
+.Card{
+    margin-top: 10px;
+    margin-bottom: auto;
+    margin-bottom: 20px;
+    width: 305px;
+    height: 400px;
+    cursor: pointer;
+    background-color: chocolate;
+}
+
+.Card img {
+    border-radius: 20px;
+    height: 280px;
+    width: 250px;
+    align-self: center;
+  }
