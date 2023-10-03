@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 
 import style from "../NavBar/NavBar.module.css"
 
-function NavBar({changeHandler, submitHandler}){
+function NavBar(){
     return(
         <div>
             <NavLink to="/Home">Home</NavLink>

@@ -8,20 +8,20 @@ function Detail(){
     const {id} = useParams();
     const [dogs, setDogs] = useState([])
 
-    useEffect(()=>{
-        axios.get(`http://localhost:3001/dogs/${id}`).then(({data})=>{
-            if(data.name){
-                setDogs(data);
-            }
-        })
+    useEffect(()=>{ 
+        async function fetchData(){
+            const {data} = await axios.get(`http://localhost:3001/dogs/${id}`)
+            setDogs(data[0])
+        } 
+        fetchData()
         return setDogs({});
     }, []);
 
     return(
         <div>
-            <h1>{dogs.name}</h1>
-            <p>{dogs.weight}</p>
-            <p>{dogs.height}</p>
+            <h1>{dogs?.name}</h1>
+            <p>{dogs.weight?.metric}</p>
+            <p>{dogs.height?.metric}</p>
             <p>{dogs.bred_for}</p>
             <p>{dogs.breed_group}</p>
             <p>{dogs.life_span}</p>

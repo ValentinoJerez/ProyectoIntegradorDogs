@@ -1,28 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getByName, getInfoDogs } from "../../Redux/Actions/actions";
+import { getInfoDogs } from "../../Redux/Actions/actions";
 
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Cards from "../../components/Cards/Cards";
+import Paginado from "../../components/Paginado/Paginado";
 
 import style from "../Home/Home.module.css"
 
 function Home(){
     const dispatch = useDispatch() //Envio action al store
     const allDogs = useSelector((state) => state.allDogs) //Estado global
-    const [searchRaza, setSearchRaza] = useState("");
-
-    function changeHandler(event){
-        //No resetea la pagina
-        event.preventDefault()
-        //Setea 
-        setSearchRaza(event.target.value.toLowerCase())
+    const Items = allDogs;
+    
+    //Paginado
+    const prevPage = () => {
+        console.log("prev")
     }
-    //Search filtro BackEnd
-    function submitHandler(event){
-        event.preventDefault()
-        dispatch(getByName(searchRaza))
+
+    const nextPage = () => {
+        console.log("next");
     }
 
     //GetAll
@@ -37,9 +35,11 @@ function Home(){
     return (
         <div>
             <h1>Home</h1>
-            <SearchBar changeHandler={changeHandler} submitHandler={submitHandler}/>
+            <SearchBar />
             <Cards allDogs={allDogs}/> 
             {/* Filtros */}
+            {/* Paginado */}
+            <Paginado currentPagge={0} Items={Items} nextPage={nextPage} prevPage={prevPage} />
         </div>
     )
 }
