@@ -20,13 +20,13 @@ function Detail(){
     return(
         <div>
             <h1>{dogs?.name}</h1>
-            <p>{dogs.weight?.metric}</p>
-            <p>{dogs.height?.metric}</p>
-            <p>{dogs.bred_for}</p>
-            <p>{dogs.breed_group}</p>
-            <p>{dogs.life_span}</p>
-            <p>{dogs.temperament}</p>
-            <p>{dogs.origin}</p>
+            <p>Peso: {dogs.weight?.metric} kg</p>
+            <p>Altura: {dogs.height?.metric} cm</p>
+            <p>Criado para: {dogs.bred_for}</p>
+            <p>Grupo de Raza: {dogs.breed_group}</p>
+            <p>Esperanza de vida: {dogs.life_span}</p>
+            <p>Temperamento: {dogs.temperament}</p>
+            <p>Origen: {dogs.origin}</p>
             <img src={dogs.reference_image_id} alt="Image Dog"/>
         </div>
     )
