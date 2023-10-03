@@ -17,7 +17,7 @@ function Card({ dogs }){
                 <h1 onClick={navigateDetail}>{name}</h1>
                 <p>{weight.metric}</p>
                 <p>{temperament}</p>
-                {/* <img src={`https://cdn2.thedogapi.com/images/${reference_image_id}.jpg`} alt="Image Dog"/> */}
+                <img src={`https://cdn2.thedogapi.com/images/${reference_image_id}.jpg`} alt="Image Dog"/>
             </div>
         </div>
     )
