@@ -17,9 +17,8 @@ export const getInfoDogs = () => {
 
 //Get by Name
 export const getByName = (name) => {
-  //Funcion asincrona
-    return async function(dispatch){
-    const response = await axios(`http://localhost:3001/dogs/name?name=${name}`) 
+  return async function(dispatch){
+  const response = await axios(`http://localhost:3001/dogs/name?name=${name}`) 
     return dispatch ({
         type: "GET_DOGS_BY_NAME",
         payload: response.data,
