@@ -5,7 +5,7 @@ import { getByName, getInfoDogs } from "../../Redux/Actions/actions";
 
 import style from "../SearchBar/SearchBar.module.css"
 
-function SearchBar(){
+function SearchBar({setCurrentPage}){
     const dispatch = useDispatch()
     const [searchRaza, setSearchRaza] = useState("");
 
@@ -23,6 +23,7 @@ function SearchBar(){
         dispatch(getByName(searchRaza))
         //Limpia estado
         setSearchRaza("")
+        setCurrentPage(0);
     }
     
     function clearHandler(){

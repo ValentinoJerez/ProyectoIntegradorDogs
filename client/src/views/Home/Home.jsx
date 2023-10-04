@@ -47,9 +47,9 @@ function Home(){
     return (
         <div>
             <h1>Home</h1>
-            <SearchBar />
-            <Cards allDogs={cardDogs}/>
+            <SearchBar setCurrentPage={setCurrentPage}/>
             {/* Filtros */}
+            <Cards allDogs={cardDogs}/>
             <Paginado totalPages={totalPages} currentPage={currentPage} cardDogs={cardDogs} nextPage={nextPage} prevPage={prevPage} />
         </div>
     )
