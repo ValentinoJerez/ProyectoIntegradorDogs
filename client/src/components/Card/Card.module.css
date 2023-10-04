@@ -6,6 +6,7 @@
     height: 400px;
     cursor: pointer;
     background-color: chocolate;
+    border-radius: 15px;
 }
 
 .Card img {

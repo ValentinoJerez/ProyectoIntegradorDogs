@@ -5,7 +5,7 @@ import { getByName, getInfoDogs } from "../../Redux/Actions/actions";
 
 import style from "../SearchBar/SearchBar.module.css"
 
-function SearchBar({changeHandler, submitHandler}){
+function SearchBar(){
     const dispatch = useDispatch()
     const [searchRaza, setSearchRaza] = useState("");
 
