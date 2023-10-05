@@ -33,6 +33,7 @@ function Home(){
         if(currentPage < totalPages - 1) {
             setCurrentPage(currentPage + 1);
         }
+        window.scrollTo(0,0)
     }
 
     //GetAll

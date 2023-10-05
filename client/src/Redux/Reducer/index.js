@@ -1,8 +1,8 @@
 // Importo Actions
-import { GET_DOGS, GET_DOGS_BY_ID, GET_DOGS_BY_NAME } from "../Actions/action-types";
+import { GET_DOGS, GET_DOGS_BY_NAME, GET_TEMPERAMENTS } from "../Actions/action-types";
 
 //Estado inicial
-let initialState = {allDogs: [], allDogsCopy: []};
+let initialState = {allDogs: [], allDogsCopy: [], temperaments: []};
 
 // Reducer 
 function rootReducer(state = initialState, action){
@@ -19,6 +19,11 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 allDogs: action.payload
+            }
+        case GET_TEMPERAMENTS:
+            return {
+                ...state,
+                temperaments: action.payload
             }
         default:
             return state;

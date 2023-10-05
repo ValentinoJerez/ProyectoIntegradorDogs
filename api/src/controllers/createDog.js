@@ -1,15 +1,18 @@
 // Tipo POST
 //Importaciones
-const {Dog} = require("../db")
+const {Dog, Temperaments} = require("../db")
 
-const create = async (name, reference_image_id, weight, height, life_span) => {
+const create = async (name, weight, height, life_span, temperaments) => {
+    
     const response = await Dog.create({
         name,
-        reference_image_id,
         weight,
         height,
-        life_span
+        life_span,
     })
+    //Se asocia temperamento => Perro
+    const temperament = await Temperaments.findAll({ where: { name:  temperaments } }); //Busco los temperamentos por nombre
+        response.addTemperaments(temperament); //Al nuevo perro se le agrega el temperamento
     return response;
 };
 

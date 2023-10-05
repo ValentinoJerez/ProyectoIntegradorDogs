@@ -5,13 +5,21 @@ const axios = require("axios")
 const temperaments = async () => {
     //Pido a la Api
     const response = await axios.get("https://api.thedogapi.com/v1/breeds")
-    //Mapeo cada perro y extraigo los temperaments de la API
-    const temperamentsApi = response?.data?.map(dog => ({
-        name: dog.temperament
+    const uniqueTemperament = new Set(); //Objeto 
+
+    //Recorro cada temperamento de cada perro y extraigo 
+    const temperamentsApi = response?.data?.forEach(dog => 
+         dog?.temperament?.split(", ").forEach(temperament => uniqueTemperament.add(temperament)) //.add Agrega temperamentos al objeto(Set) 
+    )
+
+    console.log([...uniqueTemperament]);
+    //Convierto en array el Set => [...uniqueTemperament]
+    const allTemperaments = [...uniqueTemperament].map(temperament => ({
+        name: temperament, //El modelo lo pide asi (name:)
     }))
-    //Guardo en la BD los temperments
-    await Temperaments.bulkCreate(temperamentsApi)
-    return temperamentsApi
+    //Agrego a BD
+    Temperaments.bulkCreate(allTemperaments)
+    return allTemperaments
 }
 
 module.exports = temperaments;

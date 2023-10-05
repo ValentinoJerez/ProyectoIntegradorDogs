@@ -16,8 +16,8 @@ function Card({ dogs }){
         <div>
             <div onClick={navigateDetail} className={style.Card}>
                 <h1 >{name}</h1>
-                {/* <p>Weight: {weight.metric}</p> */}
-                {/* <p>Temperament: {temperament}</p> */}
+                <p>Weight: {weight.metric}</p>
+                <p>Temperament: {temperament}</p>
                 {/* Me pregunto si hay una imagen, si no pongo una por default */}
                 <img src={reference_image_id ? `https://cdn2.thedogapi.com/images/${reference_image_id}.jpg` : DefaultImage} alt="Image Dog"/>
             </div>

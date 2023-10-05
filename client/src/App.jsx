@@ -12,8 +12,9 @@ import './App.css';
 
 function App() {
   const location = useLocation()
-
+  //Hacer use efecct para q apenas se levante ejecute action de getTemperaments
   return (
+
     <div className="App">
       {/* Mientras que la ruta sea diferente a "/" se debe mostrar la NavBar */}
       {location.pathname !== "/" && <NavBar />}
