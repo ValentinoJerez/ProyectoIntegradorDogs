@@ -12,7 +12,6 @@ const temperaments = async () => {
          dog?.temperament?.split(", ").forEach(temperament => uniqueTemperament.add(temperament)) //.add Agrega temperamentos al objeto(Set) 
     )
 
-    console.log([...uniqueTemperament]);
     //Convierto en array el Set => [...uniqueTemperament]
     const allTemperaments = [...uniqueTemperament].map(temperament => ({
         name: temperament, //El modelo lo pide asi (name:)

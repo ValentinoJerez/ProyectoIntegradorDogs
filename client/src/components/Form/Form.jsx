@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createDog } from "../../Redux/Actions/actions";
+import { createDog, getTemperaments } from "../../Redux/Actions/actions";
 
 import validar from "../../Helpers/validation";
 
 function Form() {
   const dispatch = useDispatch();
-  //Hacer use selector igual que en getdog, "estado local" con temperaments
   const allTemperaments = useSelector((state) => state?.temperaments); //Estado global
-  console.log(allTemperaments);
   //Almaceno informacion
   const [dogData, setDogData] = useState({
     name: "",
@@ -22,33 +20,40 @@ function Form() {
   //Genero estado para los errores:
   const [errors, setErrors] = useState({
     name: "",
-    height: "",
-    weight: "",
+    heightMin: "",
+    heightMax: "",
+    weightMin: "",
+    weightMax: "",
     life_span: "",
     temperaments: [],
   });
 
+  //Al iniciar trae los temperamentos
+  useEffect(()=>{
+    dispatch(getTemperaments())
+  }, [])
+
   //Recibe evento y modifica el estado
   function handleChange(event) {
-    if (event.target.name === "HeightMin") {
+    if (event.target.name === "heightMin") { //Si es igual a Min lo concatena al inicio
       return setDogData({
         ...dogData,
         height: event.target.value.concat(dogData.height),
       });
     }
-    if (event.target.name === "HeightMax") {
+    if (event.target.name === "heightMax") { //Si es igual a Max lo concatena despues del "-"
       return setDogData({
         ...dogData,
         height: dogData.height.concat(" - " + event.target.value),
       });
     }
-    if (event.target.name === "WeightMin") {
+    if (event.target.name === "weightMin") {
       return setDogData({
         ...dogData,
         weight: event.target.value.concat(dogData.weight),
       });
     }
-    if (event.target.name === "WeightMax") {
+    if (event.target.name === "weightMax") {
       return setDogData({
         ...dogData,
         weight: dogData.weight.concat(" - " + event.target.value),
@@ -66,80 +71,59 @@ function Form() {
     );
   }
 
-  function disableHandler() {
-    let disabled = false;
-    for (let error in errors) {
-      if (errors[error] === "") {
-        disabled = false;
-      } else {
-        disabled = true;
-        break;
-      }
-    }
-    return disabled;
-  }
+  // function disableHandler() {
+  //   let disabled = false;
+  //   for (let error in errors) {
+  //     if (errors[error] === "") {
+  //       disabled = false;
+  //     } else {
+  //       disabled = true;
+  //       break;
+  //     }
+  //   }
+  //   return disabled;
+  // }
 
   //Funcion submit
   //despachar a una action la data de los input
   function submitHandler(event) {
     event.preventDefault();
-    dispatch(createDog(dogData));
+    dispatch(createDog({}));
   }
 
   return (
     <div>
-      <h2>Create your dog</h2>
+      {/* <h2>Create your dog</h2> */}
       <form>
-        <label>
-          Name:
-          <input name="name" value={dogData.name} onChange={handleChange} />
-        </label>
-        <span>{errors.name}</span>
-        <label>
-          Height:
-          <label>
-            Altura Min:
-            <input name="HeightMin" onChange={handleChange} />
-          </label>
-          <span>{errors.height}</span>
-          <label>
-            Altura Max:
-            <input name="HeightMax" onChange={handleChange} />
-          </label>
-        </label>
-        <span>{errors.height}</span>
-        <label>
-          Weight:
-          <label>
-            Peso Min:
-            <input name="WeightMin" onChange={handleChange} />
-          </label>
-          <span>{errors.weight}</span>
-          <label>
-            Peso Max:
-            <input name="WeightMax" onChange={handleChange} />
-          </label>
-        </label>
-        <span>{errors.weight}</span>
+        <label>Name: <input name="name" value={dogData.name} onChange={handleChange} /></label>
+                {errors.name && <span>{errors.name}</span>}
+        <label>Height:</label>
+          <label>Altura Min: </label>
+            <input name="heightMin" value={dogData.heightMin} onChange={handleChange} />
+                {errors.heightMin && <span>{errors.heightMin}</span>}
+          
+          <label>Altura Max: </label>
+            <input name="heightMax" value={dogData.heightMax} onChange={handleChange} />
+                {errors.heightMax && <span>{errors.heightMax}</span>}
+        
+        <label>Weight: </label>
+          <label>Peso Min: </label>
+            <input name="weightMin" value={dogData.weightMin} onChange={handleChange} />
+                {errors.weightMin && <span>{errors.weightMin}</span>}
+          
+          <label>Peso Max: </label>
+            <input name="weightMax" value={dogData.weightMax} onChange={handleChange} />
+                {errors.weightMax && <span>{errors.weightMax}</span>}
+          
         <label>
           Life Span:
-          <input
-            name="life_span"
-            value={dogData.life_span}
-            onChange={handleChange}
-          />
+          <input name="life_span" value={dogData.life_span} onChange={handleChange}/>
         </label>
-        <span>{errors.life_span}</span>
-        {/* Hacer select multiple para elegir varios temperamentos, 
-                        traer el allTemperaments y guardar en estado global(temperaments),
-                        una vez que tengo todo en estado local 
-                        <select>{estado local(temperament).map(temperament => (<options>{temperament.name}<options>))}<select> */}
-        <label>Temperaments:
-          <select multiple>
-            {allTemperaments.map((temperament) => (<option key={temperament.name} value={temperament.name}>{temperament.name}</option>
-            ))}</select>
+        {errors.life_span && <span>{errors.life_span}</span>}
+        <label>Temperaments: 
+          <select multiple name="temperaments">
+            {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
         </label>
-
         <button type="Submit" onClick={submitHandler}>Create</button>
       </form>
     </div>
