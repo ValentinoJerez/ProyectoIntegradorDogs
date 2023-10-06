@@ -1,12 +1,12 @@
 //Import
-import { GET_DOGS, GET_DOGS_BY_NAME, CREATE_DOG, GET_TEMPERAMENTS } from "./action-types";
+import { GET_DOGS, GET_DOGS_BY_NAME, CREATE_DOG, GET_TEMPERAMENTS, ORDER, FILTER_TEMPERAMENTS, FILTER_API_BD, ORDER_PESO } from "./action-types";
 import axios from "axios"
 
 //Get All
 export const getInfoDogs = () => {
   //Funcion asincrona
     return async function(dispatch){
-    const response = await axios(`http://localhost:3001/dogs`) 
+    const response = await axios(`http://localhost:3001/dogs`)
     return dispatch ({
         type: GET_DOGS,
         payload: response.data,
@@ -44,5 +44,36 @@ export const createDog = (dogData) => {
   } catch (error) {
     alert(error.message)
     }
+  }
+}
+
+export const filterTemperaments = (name) => {
+  return{
+    type: FILTER_TEMPERAMENTS,
+    payload: name
+  }
+}
+
+export const filterApiDb = () => {
+  return async function(dispatch){
+      const response = await axios(`http://localhost:3001/dogs`)
+      return dispatch({
+        type: FILTER_API_BD,
+        payload: response.data
+      })
+    }
+  }
+
+export const order = (order) => {
+  return{
+    type: ORDER,
+    payload: order
+  };
+}
+
+export const orderPeso = (orderType) => {
+  return {
+    type: ORDER_PESO,
+    payload: orderType
   }
 }
