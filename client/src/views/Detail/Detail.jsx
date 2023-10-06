@@ -11,6 +11,7 @@ function Detail(){
     useEffect(()=>{ 
         async function fetchData(){
             const {data} = await axios.get(`http://localhost:3001/dogs/${id}`)
+            console.log(data[0]);
             setDogs(data[0])
         } 
         fetchData()

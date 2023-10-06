@@ -12,7 +12,11 @@ function Form() {
   const [dogData, setDogData] = useState({
     name: "",
     height: "",
+    heightMin: "",
+    heightMax: "",
     weight: "",
+    weightMin: "",
+    weightMax: "",
     life_span: "",
     temperaments: [],
   });
@@ -35,30 +39,6 @@ function Form() {
 
   //Recibe evento y modifica el estado
   function handleChange(event) {
-    if (event.target.name === "heightMin") { //Si es igual a Min lo concatena al inicio
-      return setDogData({
-        ...dogData,
-        height: event.target.value.concat(dogData.height),
-      });
-    }
-    if (event.target.name === "heightMax") { //Si es igual a Max lo concatena despues del "-"
-      return setDogData({
-        ...dogData,
-        height: dogData.height.concat(" - " + event.target.value),
-      });
-    }
-    if (event.target.name === "weightMin") {
-      return setDogData({
-        ...dogData,
-        weight: event.target.value.concat(dogData.weight),
-      });
-    }
-    if (event.target.name === "weightMax") {
-      return setDogData({
-        ...dogData,
-        weight: dogData.weight.concat(" - " + event.target.value),
-      });
-    }
     setDogData({
       ...dogData,
       [event.target.name]: event.target.value,
@@ -71,24 +51,28 @@ function Form() {
     );
   }
 
-  // function disableHandler() {
-  //   let disabled = false;
-  //   for (let error in errors) {
-  //     if (errors[error] === "") {
-  //       disabled = false;
-  //     } else {
-  //       disabled = true;
-  //       break;
-  //     }
-  //   }
-  //   return disabled;
-  // }
+  function disableHandler() {
+    let disabled = false;
+    for (let error in errors) {
+      if (errors[error] === "") {
+        disabled = false;
+      } else {
+        disabled = true;
+        break;
+      }
+    }
+    return disabled;
+  }
 
   //Funcion submit
   //despachar a una action la data de los input
   function submitHandler(event) {
     event.preventDefault();
-    dispatch(createDog({}));
+    dispatch(createDog({
+      ...dogData,
+      height: { metric: `${dogData.heightMin} - ${dogData.heightMax}`},
+      weight: { metric: `${dogData.weightMin} - ${dogData.weightMax}`}
+    }));
   }
 
   return (
@@ -114,17 +98,14 @@ function Form() {
           <label>Peso Max: </label>
             <input name="weightMax" value={dogData.weightMax} onChange={handleChange} />
                 {errors.weightMax && <span>{errors.weightMax}</span>}
-          
-        <label>
-          Life Span:
+          <label>Life Span: </label>
           <input name="life_span" value={dogData.life_span} onChange={handleChange}/>
+                {errors.life_span && <span>{errors.life_span}</span>}
+          <label>Temperaments: 
+            <select multiple name="temperaments">
+                {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
         </label>
-        {errors.life_span && <span>{errors.life_span}</span>}
-        <label>Temperaments: 
-          <select multiple name="temperaments">
-            {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
-        </label>
-        <button type="Submit" onClick={submitHandler}>Create</button>
+        <button type="Submit" disabled={disableHandler()} onClick={submitHandler}>Create</button>
       </form>
     </div>
   );

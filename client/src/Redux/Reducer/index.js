@@ -1,5 +1,5 @@
 // Importo Actions
-import { FILTER_TEMPERAMENTS, GET_DOGS, GET_DOGS_BY_NAME, GET_TEMPERAMENTS, ORDER, ORDER_PESO } from "../Actions/action-types";
+import { CREATE_DOG, FILTER_TEMPERAMENTS, GET_DOGS, GET_DOGS_BY_NAME, GET_TEMPERAMENTS, ORDER, ORDER_PESO } from "../Actions/action-types";
 
 //Estado inicial
 let initialState = {allDogs: [], allDogsCopy: [], temperaments: [], temperamentsCopy: []};
@@ -25,6 +25,11 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 temperaments: action.payload
+            }
+        case CREATE_DOG:
+            return{
+                ...state,
+                allDogsCopy: [...state.allDogsCopy, action.payload]
             }
         //Filtro por temperamento
         case FILTER_TEMPERAMENTS:

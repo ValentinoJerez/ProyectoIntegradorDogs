@@ -5,12 +5,21 @@ const axios = require("axios")
 
 const getDogsId = async (id) => {
     //Busco BD
-    const dogFromDB = await Dog.findAll({where: {name: id}})
+    console.log(id);
+    const dogFromDB = await Dog.findAll({where: {id: id}})
+    const dogsOk = dogFromDB.map((dog)=>{
+        return {
+                name: dog.name,
+                weight: {metric: dog.weight},
+                height: {metric: dog.height},
+                life_span: dog.life_span
+        }
+    })
     //Busco Api
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`) 
     const dogFromApi = response.data //Destructuring
     //Devuelvo ambos
-    return dogFromDB.concat(dogFromApi);
+    return dogsOk.concat(dogFromApi);
 }
 
 module.exports = getDogsId
