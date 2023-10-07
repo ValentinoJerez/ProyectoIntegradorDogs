@@ -87,22 +87,25 @@ function Home(){
 
     return (
         <div>
-            <h1>Home</h1>
             <SearchBar setCurrentPage={setCurrentPage}/>
             {/* Filtros */}
             <div>
             <select placeholder="Filter" onChange={filterApi_Db}>
+                <option>Api/Base de Datos</option>
                 <option value="Api">Api</option>
                 <option value="Base de Datos">Base de Datos</option>
             </select>
             <select placeholder="FilterTemperament" onChange={filterTemperament}>
+                <option>Temperaments</option>
                 {allTemperaments.map((temperament) => (<option value={temperament.name} key={temperament.name} name={temperament.name}>{temperament.name}</option>))}
             </select>
             <select placeholder="Order" onChange={orderHandler}>
+                <option>Order</option>
                 <option value="Ascendente">A-Z</option>
                 <option value="Descendente">Z-A</option>
             </select>
             <select placeholder="Order Peso" onChange={orderPesoHandler}>
+                <option>Order Peso</option>
                 <option value="Mayor Peso">Mayor Peso</option>
                 <option value="Menor Peso">Menor Peso</option>
             </select>
