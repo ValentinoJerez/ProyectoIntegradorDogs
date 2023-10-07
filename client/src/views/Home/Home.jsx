@@ -15,6 +15,7 @@ function Home(){
     const allDogs = useSelector((state) => state?.allDogsCopy) //Estado global
     const allTemperaments = useSelector((state)=> state?.temperaments) 
     const [selectedTemperament, setSelectedTemperament] = useState("");
+    // componente Home, deberías usar filteredDogs en lugar de allDogs cuando quieras mostrar los perros que han pasado por el filtro de origen.
     
     //Paginado
     const [currentPage, setCurrentPage] = useState(0);
@@ -53,8 +54,21 @@ function Home(){
     }
 
     //Filtro y Order
-    function filterHandler(event){
-        dispatch(filterApiDb())
+    function filterApi_Db(event){
+        const value = event.target.value;
+
+        const filteredDogs = allDogs.filter((dog) => {
+            if (value === "Api") {
+                // Verificar si el ID es un número (API)
+                return !isNaN(dog.id);
+            } else if (value === "Base de Datos") {
+                // Verificar si el ID contiene letras (BD)
+                return /[a-zA-Z]/.test(dog.id);
+            }
+            // Si no retornar todos los perros
+            return true;
+        });
+        dispatch(filterApiDb(filteredDogs))
     }
     function filterTemperament(event){
         const selectedValue = event.target.value;
@@ -76,7 +90,7 @@ function Home(){
             <SearchBar setCurrentPage={setCurrentPage}/>
             {/* Filtros */}
             <div>
-            <select placeholder="Filter" onChange={filterHandler}>
+            <select placeholder="Filter" onChange={filterApi_Db}>
                 <option value="Api">Api</option>
                 <option value="Base de Datos">Base de Datos</option>
             </select>

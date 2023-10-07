@@ -32,6 +32,8 @@ function Form() {
     temperaments: [],
   });
 
+  console.log(dogData.temperaments);
+
   //Al iniciar trae los temperamentos
   useEffect(()=>{
     dispatch(getTemperaments())
@@ -49,6 +51,17 @@ function Form() {
         [event.target.name]: event.target.value,
       })
     );
+  }
+
+  function selectedChange(event){
+    //Temperaments tiene dentro event
+    if(dogData.temperaments.includes(event.target.value)){
+      return
+    } 
+    setDogData({
+      ...dogData,
+      temperaments: [...dogData.temperaments, event.target.value]
+    })
   }
 
   function disableHandler() {
@@ -102,7 +115,7 @@ function Form() {
           <input name="life_span" value={dogData.life_span} onChange={handleChange}/>
                 {errors.life_span && <span>{errors.life_span}</span>}
           <label>Temperaments: 
-            <select multiple name="temperaments">
+            <select name="temperaments" onChange={selectedChange}>
                 {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
         </label>
         <button type="Submit" disabled={disableHandler()} onClick={submitHandler}>Create</button>

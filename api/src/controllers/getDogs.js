@@ -1,11 +1,18 @@
 // Importaciones
-const {Dog} = require('../db')
+const {Dog, Temperaments} = require('../db')
 const axios = require("axios")
 
 
 const get = async () => {
-        //Busco en BD
-        const dogsDB = await Dog.findAll()
+        //Busco en BD, perros y sus temperamentos
+        const dogsDB = await Dog.findAll({
+                include: [
+                        {model: Temperaments,
+                         through: {
+                                attributes: []
+                         }}
+                ]
+        })
         const dogsOk = dogsDB.map((dog)=>{
                 return {
                         id: dog.id,

@@ -1,8 +1,8 @@
 // Importo Actions
-import { CREATE_DOG, FILTER_TEMPERAMENTS, GET_DOGS, GET_DOGS_BY_NAME, GET_TEMPERAMENTS, ORDER, ORDER_PESO } from "../Actions/action-types";
+import { CREATE_DOG, FILTER_API_BD, FILTER_TEMPERAMENTS, GET_DOGS, GET_DOGS_BY_NAME, GET_TEMPERAMENTS, ORDER, ORDER_PESO } from "../Actions/action-types";
 
 //Estado inicial
-let initialState = {allDogs: [], allDogsCopy: [], temperaments: [], temperamentsCopy: []};
+let initialState = {allDogs: [], allDogsCopy: [], temperaments: [], filteredDogs: []};
 
 // Reducer 
 function rootReducer(state = initialState, action){
@@ -31,7 +31,6 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allDogsCopy: [...state.allDogsCopy, action.payload]
             }
-        //Filtro por temperamento
         case FILTER_TEMPERAMENTS:
             const copyDogs = [...state.allDogs]
 
@@ -45,7 +44,12 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allDogsCopy: response
             }
-
+        case FILTER_API_BD:
+            return {
+                ...state,
+                filteredDogs: action.payload, 
+                allDogsCopy: action.payload
+            }
         //Orden 
         case ORDER:
             let orden;
