@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
     color: #e8e8e8;
-    background-color: #212121;
+    background-color: #ffffff;
     width: 60px;
     height: 40px;
     font-size: 24px;
@@ -56,19 +56,8 @@
     border: 2px solid #212121;
     border-radius: 10px;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-    /* box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.15),
-      2px 2px 2px rgba(0, 0, 0, 0.1),
-      -3px -3px 2px rgba(255, 255, 255, 0.05),
-      -2px -2px 1px rgba(255, 255, 255, 0.05); */
     overflow: hidden;
     cursor: pointer;
     margin: 3px;
     padding: 3px;
-  }
-  
-  .button .span {
-    position: relative;
-    z-index: 2;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
+}
