@@ -2,7 +2,8 @@
 import { CREATE_DOG, FILTER_API_BD, FILTER_TEMPERAMENTS, GET_DOGS, GET_DOGS_BY_NAME, GET_TEMPERAMENTS, ORDER, ORDER_PESO } from "../Actions/action-types";
 
 //Estado inicial
-let initialState = {allDogs: [], allDogsCopy: [], temperaments: [], filteredDogs: []};
+let initialState = {allDogs: [], allDogsCopy: [], temperaments: [],  filteredDogs: []};
+// temperamentsCopy: [],
 
 // Reducer 
 function rootReducer(state = initialState, action){
@@ -45,11 +46,20 @@ function rootReducer(state = initialState, action){
                 allDogsCopy: response
             }
         case FILTER_API_BD:
+            let filter;
+            if(action.payload === "Api"){
+                filter = state.allDogs.filter(dog => dog.id.toString().length < 4 )
+            } else if (action.payload === "Base de Datos"){
+                filter = state.allDogs.filter(dog => dog.id.toString().length > 4)
+            }
+            //if action.payload es api 
+            //state.alldogs.filter(quiero tener todos los perros que dog.id-toString.length(sea menor a 4))
+            //si es base d datos que el filter(sea mayor)
             return {
                 ...state,
-                filteredDogs: action.payload, 
-                allDogsCopy: action.payload
+                allDogsCopy: [...filter]
             }
+
         //Orden 
         case ORDER:
             let orden;

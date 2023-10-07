@@ -12,7 +12,7 @@ import style from "../Home/Home.module.css"
 
 function Home(){
     const dispatch = useDispatch(); //Envio action al store
-    const allDogs = useSelector((state) => state?.allDogsCopy) //Estado global
+    const allDogs = useSelector((state) => state?.allDogsCopy) //Estado global copia
     const allTemperaments = useSelector((state)=> state?.temperaments) 
     const [selectedTemperament, setSelectedTemperament] = useState("");
     // componente Home, deberías usar filteredDogs en lugar de allDogs cuando quieras mostrar los perros que han pasado por el filtro de origen.
@@ -55,21 +55,22 @@ function Home(){
 
     //Filtro y Order
     function filterApi_Db(event){
+        //Si es base de datos o api
         const value = event.target.value;
-
-        const filteredDogs = allDogs.filter((dog) => {
-            if (value === "Api") {
-                // Verificar si el ID es un número (API)
-                return !isNaN(dog.id);
-            } else if (value === "Base de Datos") {
-                // Verificar si el ID contiene letras (BD)
-                return /[a-zA-Z]/.test(dog.id);
-            }
-            // Si no retornar todos los perros
-            return true;
-        });
-        dispatch(filterApiDb(filteredDogs))
+        // const filteredDogs = allDogs.filter((dog) => {
+            //     if (value === "Api") {
+        //         // Verificar si el ID es un número (API)
+        //         return !isNaN(dog.id);
+        //     } else if (value === "Base de Datos") {
+        //         // Verificar si el ID contiene letras (BD)
+        //         return /[a-zA-Z]/.test(dog.id);
+        //     }
+        //     // Si no retornar todos los perros
+        //     return true;
+        // });
+        dispatch(filterApiDb(value))
     }
+
     function filterTemperament(event){
         const selectedValue = event.target.value;
         console.log(selectedValue);

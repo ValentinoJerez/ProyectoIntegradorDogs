@@ -15,7 +15,8 @@ const getDogsId = async (id) => {
                 weight: {metric: dog.weight},
                 height: {metric: dog.height},
                 life_span: dog.life_span,
-                temperaments: dog.Temperaments //Devuelve array
+                temperaments: dog.Temperaments 
+                //Devuelve array
             }
         })
         return dogsOk[0];

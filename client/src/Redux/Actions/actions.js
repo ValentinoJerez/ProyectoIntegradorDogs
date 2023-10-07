@@ -55,15 +55,12 @@ export const filterTemperaments = (name) => {
   }
 }
 
-export const filterApiDb = () => {
-  return async function(dispatch){
-      const response = await axios(`http://localhost:3001/dogs`)
-      return dispatch({
+export const filterApiDb = (value) => {
+      return {
         type: FILTER_API_BD,
-        payload: response.data
-      })
+        payload: value
+      }
     }
-  }
 
 export const order = (order) => {
   return{
