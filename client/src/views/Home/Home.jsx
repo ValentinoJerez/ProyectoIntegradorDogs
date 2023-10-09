@@ -86,7 +86,7 @@ function Home(){
     }
 
     return (
-        <div>
+        <div className={style.containerHome}>
             <SearchBar setCurrentPage={setCurrentPage}/>
             {/* Filtros */}
             <div>

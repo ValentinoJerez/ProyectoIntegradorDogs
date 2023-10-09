@@ -1,9 +1,11 @@
 .container {
+    background-color: blue;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    height: 60px;
 }
 
 .navLink {

@@ -4,7 +4,7 @@
     align-items: center;
     position: relative;
     max-width: 300px;
-    margin: 10px auto; /* Centra horizontalmente */
+    margin: 10px auto;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -24,11 +24,11 @@
     transition: .3s ease;
    }
    
-   .input::placeholder {
+   .inputSearch::placeholder {
     color: #9e9ea7;
    }
    
-   .input:focus, input:hover {
+   .inputSearch:focus, input:hover {
     outline: none;
     border-color: rgba(234,76,137,0.4);
     background-color: #fff;

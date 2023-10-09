@@ -5,6 +5,8 @@ import { createDog, getTemperaments } from "../../Redux/Actions/actions";
 
 import validar from "../../Helpers/validation";
 
+import style from "../Form/Form.module.css"
+
 function Form() {
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state?.temperaments); //Estado global
@@ -89,37 +91,47 @@ function Form() {
   }
 
   return (
-    <div>
-      {/* <h2>Create your dog</h2> */}
+    <div className={style.containerForm}>
+      <div className={style.tools}>
       <form>
-        <label>Name: <input name="name" value={dogData.name} onChange={handleChange} /></label>
+        <div className={style.inputGroup}>
+          <label className={style.label}>Name: </label>
+            <input name="name" value={dogData.name} className={style.input} onChange={handleChange} />
                 {errors.name && <span>{errors.name}</span>}
-        <label>Height:</label>
-          <label>Altura Min: </label>
-            <input name="heightMin" value={dogData.heightMin} onChange={handleChange} />
+          
+          <label className={style.label}>Height:</label>
+          
+          <label className={style.label}>Altura Min: </label>
+            <input name="heightMin" value={dogData.heightMin} className={style.input} onChange={handleChange} />
                 {errors.heightMin && <span>{errors.heightMin}</span>}
           
-          <label>Altura Max: </label>
-            <input name="heightMax" value={dogData.heightMax} onChange={handleChange} />
+          <label className={style.label}>Altura Max: </label>
+            <input name="heightMax" value={dogData.heightMax} className={style.input} onChange={handleChange} />
                 {errors.heightMax && <span>{errors.heightMax}</span>}
         
-        <label>Weight: </label>
-          <label>Peso Min: </label>
-            <input name="weightMin" value={dogData.weightMin} onChange={handleChange} />
+          <label className={style.label}>Weight: </label>
+          
+          <label className={style.label}>Peso Min: </label>
+            <input name="weightMin" value={dogData.weightMin} className={style.input} onChange={handleChange} />
+        
                 {errors.weightMin && <span>{errors.weightMin}</span>}
           
-          <label>Peso Max: </label>
-            <input name="weightMax" value={dogData.weightMax} onChange={handleChange} />
+          <label className={style.label}>Peso Max: </label>
+            <input name="weightMax" value={dogData.weightMax} className={style.input} onChange={handleChange} />
                 {errors.weightMax && <span>{errors.weightMax}</span>}
-          <label>Life Span: </label>
-          <input name="life_span" value={dogData.life_span} onChange={handleChange}/>
+          
+          <label className={style.label}>Life Span: </label>
+          <input name="life_span" value={dogData.life_span} className={style.input} onChange={handleChange}/>
                 {errors.life_span && <span>{errors.life_span}</span>}
-          <label>Temperaments: 
+          
+          <label className={style.label}>Temperaments: </label>
             <select name="temperaments" onChange={selectedChange}>
                 {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
-        </label>
-        <button type="Submit" disabled={disableHandler()} onClick={submitHandler}>Create</button>
-      </form>
+          
+            <button type="Submit" disabled={disableHandler()} onClick={submitHandler}>Create</button>
+        </div>
+        </form>
+      </div>
     </div>
   );
 }
