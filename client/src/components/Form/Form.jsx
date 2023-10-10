@@ -98,21 +98,21 @@ function Form() {
     <div className={style.containerForm}>
       <form>
         <div className={style.inputGroup}>
-          <label className={style.label}>Name: </label>
+          <label className={style.label}><h3>Name:</h3></label>
             <input name="name" value={dogData.name} className={style.input} onChange={handleChange} />
                 {errors.name && <span>{errors.name}</span>}
           
-          <label className={style.label}>Height:</label>
+          <label className={style.label}><h3>Height:</h3></label>
           
-          <label className={style.label}>Altura Min: </label>
+          <label className={style.label}>Altura Min:</label>
             <input name="heightMin" value={dogData.heightMin} className={style.input} onChange={handleChange} />
                 {errors.heightMin && <span>{errors.heightMin}</span>}
           
-          <label className={style.label}>Altura Max: </label>
+          <label className={style.label}>Altura Max:</label>
             <input name="heightMax" value={dogData.heightMax} className={style.input} onChange={handleChange} />
                 {errors.heightMax && <span>{errors.heightMax}</span>}
         
-          <label className={style.label}>Weight: </label>
+          <label className={style.label}><h3>Weight:</h3></label>
           
           <label className={style.label}>Peso Min: </label>
             <input name="weightMin" value={dogData.weightMin} className={style.input} onChange={handleChange} />
@@ -123,11 +123,11 @@ function Form() {
             <input name="weightMax" value={dogData.weightMax} className={style.input} onChange={handleChange} />
                 {errors.weightMax && <span>{errors.weightMax}</span>}
           
-          <label className={style.label}>Life Span: </label>
+          <label className={style.label}><h3>Life Span:</h3></label>
           <input name="life_span" value={dogData.life_span} className={style.input} onChange={handleChange}/>
                 {errors.life_span && <span>{errors.life_span}</span>}
           
-          <label className={style.label}>Temperaments: </label>
+          <label className={style.label}><h3>Temperaments:</h3></label>
             <select multiple name="temperaments" value={dogData.temperaments} onChange={selectedChange} >
                 {allTemperaments.map((temperaments) => (<option key={temperaments.name} name={temperaments.name}>{temperaments.name}</option>))}</select>
           
