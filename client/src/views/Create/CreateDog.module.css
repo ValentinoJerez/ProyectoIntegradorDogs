@@ -1,27 +1,35 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: inherit;
   }
   
   .form {
-    text-align: left; /* Alinea el texto a la izquierda */
-    max-width: 400px; /* Ajusta el ancho máximo del formulario según tu preferencia */
+    text-align: left; 
+    max-width: 400px;
+    border-radius: 10px;
   }
   
-  .form label {
+.form label {
     display: block;
     margin-bottom: 8px;
-  }
+}
   
-  .form input {
-    width: 100%;
+.form input {
+    width: 800px;
     padding: 8px;
     margin-bottom: 12px;
-  }
+}
   
-  .form button {
+.form button {
+    margin-top: 5px;
     padding: 8px 16px;
-  }
+} 

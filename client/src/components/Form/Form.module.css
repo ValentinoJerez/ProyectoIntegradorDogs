@@ -1,22 +1,17 @@
 .containerForm{
-    width: 400px;
+    width: 500px;
     margin-top: 5px;
     margin: 10px;
     border-radius: 10px;
-    /* z-index: 1; */
-    /* display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; */
-    display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+    height: 100vh;
 }
 
 .tools {
     padding: 20px;
-    background-color: #2b709e;
+    background-color: #417CF2;
     border-radius: 10px;
     max-width: 800px; /* Puedes ajustar este valor según sea necesario */
     width: 100%;
@@ -40,8 +35,8 @@
 }
 
 .input {
-    max-width: 300px;
-    height: 20px;
+    max-width: 400px;
+    height: 15px;
     background-color: #05060f0a;
     border-radius: .5rem;
     padding: 0 1rem;
@@ -57,4 +52,30 @@
   
 .inputGroup:hover .label, .input:focus {
     color: #05060fc2;
+}
+
+/* Create */
+.create {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+  
+.create:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+ 
+.create:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
 }

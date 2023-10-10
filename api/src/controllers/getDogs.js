@@ -19,7 +19,8 @@ const get = async () => {
                         name: dog.name,
                         weight: {metric: dog.weight},
                         height: {metric: dog.height},
-                        life_span: dog.life_span
+                        life_span: dog.life_span,
+                        // temperaments: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
                 }
         })
         //Busco en Api

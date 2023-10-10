@@ -6,7 +6,6 @@ import { getInfoDogs, order, getTemperaments, filterApiDb, filterTemperaments, o
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Cards from "../../components/Cards/Cards";
 import Paginado from "../../components/Paginado/Paginado";
-import FilterOrder from "../../components/FilterOrder";
 
 import style from "../Home/Home.module.css"
 
@@ -15,7 +14,6 @@ function Home(){
     const allDogs = useSelector((state) => state?.allDogsCopy) //Estado global copia
     const allTemperaments = useSelector((state)=> state?.temperaments) 
     const [selectedTemperament, setSelectedTemperament] = useState("");
-    // componente Home, deberías usar filteredDogs en lugar de allDogs cuando quieras mostrar los perros que han pasado por el filtro de origen.
     
     //Paginado
     const [currentPage, setCurrentPage] = useState(0);

@@ -25,14 +25,14 @@
    }
    
    .inputSearch::placeholder {
-    color: #9e9ea7;
+    color: #1F3B73;
    }
    
    .inputSearch:focus, input:hover {
     outline: none;
-    border-color: rgba(234,76,137,0.4);
+    border-color: #2D55A6;
     background-color: #fff;
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+    box-shadow: 0 0 0 4px #1F3B73;
    }
    
    .icon {

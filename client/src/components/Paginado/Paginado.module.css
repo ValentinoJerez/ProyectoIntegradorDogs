@@ -1,7 +1,7 @@
 .prev{
     display: inline-block;
     border-radius: 4px;
-    background-color: #3d405b;
+    background-color: #1F3B73;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -17,7 +17,7 @@
 .next{
     display: inline-block;
     border-radius: 4px;
-    background-color: #3d405b;
+    background-color: #1F3B73;
     border: none;
     color: #FFFFFF;
     text-align: center;

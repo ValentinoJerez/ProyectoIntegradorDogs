@@ -57,15 +57,19 @@ function Form() {
 
   function selectedChange(event){
     //Temperaments tiene dentro event
-    if(dogData.temperaments.includes(event.target.value)){
-      return
-    } 
+    // if(event.target.value === "temperaments"){
+    //   return setDogData({
+    //         ...dogData,
+    //         temperaments: [...dogData.temperaments, event.target.value]
+    //       })
+    // }
     setDogData({
       ...dogData,
       temperaments: [...dogData.temperaments, event.target.value]
     })
   }
 
+/*Boton Create no aparece hasta que no hayan errores*/
   function disableHandler() {
     let disabled = false;
     for (let error in errors) {
@@ -80,9 +84,9 @@ function Form() {
   }
 
   //Funcion submit
-  //despachar a una action la data de los input
   function submitHandler(event) {
     event.preventDefault();
+    //Despacha a una action la data de los input
     dispatch(createDog({
       ...dogData,
       height: { metric: `${dogData.heightMin} - ${dogData.heightMax}`},
@@ -128,7 +132,7 @@ function Form() {
             <select name="temperaments" onChange={selectedChange}>
                 {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
           
-            <button type="Submit" disabled={disableHandler()} onClick={submitHandler}>Create</button>
+            <button type="Submit" className={style.create} disabled={disableHandler()} onClick={submitHandler}>Create</button>
         </div>
         </form>
       </div>

@@ -15,7 +15,7 @@ const getDogsId = async (id) => {
                 weight: {metric: dog.weight},
                 height: {metric: dog.height},
                 life_span: dog.life_span,
-                temperaments: dog.Temperaments 
+                // temperaments: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
                 //Devuelve array
             }
         })

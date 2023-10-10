@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Button Enter */
+.enter {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica,"sans-serif";
+    transition: all .2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: #26488C;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+  
+.enter:hover {
+    background: #26488C;
+}
+  
+.enter > svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform .3s ease-in-out;
+}
+  
+.enter:hover svg {
+    transform: translateX(5px);
+  }
+  
+.enter:active {
+    transform: scale(0.95);
+}
+
+.img{
+    width: 520px;
+    border-radius: 10px;
+}
