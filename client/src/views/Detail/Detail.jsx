@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import ImageDefault from "../../assets/IMG_20181222_172509.jpg"
+
+import style from "../Detail/Detail.module.css"
 
 function Detail(){
     //Permite acceder a los parametros de la URL
@@ -30,7 +33,8 @@ console.log(dogs);
             <p>Esperanza de vida: {dogs?.life_span}</p>
             <p>Temperamento: {dogs?.temperament}</p>
             <p>Origen: {dogs?.origin}</p>
-            <img src={`https://cdn2.thedogapi.com/images/${dogs.reference_image_id}.jpg`} alt="Image Dog"/>
+            {/* Me pregunto si hay una imagen, si no pongo una por default */}
+            <img src={dogs.reference_image_id ? `https://cdn2.thedogapi.com/images/${dogs.reference_image_id}.jpg` : ImageDefault} alt="Image Dog"/>
         </div>
     )
 }
