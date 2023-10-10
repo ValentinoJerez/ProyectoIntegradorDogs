@@ -17,9 +17,10 @@ const create = async (name, weight, height, life_span, temperaments) => {
         life_span
     })
     //Se asocia temperamento => Perro
-    
-    const temperament = await Temperaments.findAll({ where: { name:  temperaments } }); //Busco los temperamentos por nombre
-        response.addTemperaments(temperament); //Al nuevo perro se le agrega el temperamento
+    //Busco los temperamentos por nombre
+    const temperament = await Temperaments.findAll({ where: { name:  temperaments } }); 
+        //Al nuevo perro se le agrega el temperamento
+        response.addTemperaments(temperament); 
 
     return dog;
 };

@@ -6,12 +6,7 @@ const axios = require("axios")
 const get = async () => {
         //Busco en BD, perros y sus temperamentos
         const dogsDB = await Dog.findAll({
-                include: [
-                        {model: Temperaments,
-                         through: {
-                                attributes: []
-                         }}
-                ]
+                include: {model: Temperaments}    
         })
         const dogsOk = dogsDB.map((dog)=>{
                 return {
@@ -20,7 +15,7 @@ const get = async () => {
                         weight: {metric: dog.weight},
                         height: {metric: dog.height},
                         life_span: dog.life_span,
-                        // temperaments: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
+                        temperament: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
                 }
         })
         //Busco en Api

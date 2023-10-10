@@ -37,9 +37,9 @@ function Form() {
   console.log(dogData.temperaments);
 
   //Al iniciar trae los temperamentos
-  useEffect(()=>{
-    dispatch(getTemperaments())
-  }, [])
+  // useEffect(()=>{
+  //   dispatch(getTemperaments())
+  // }, [])
 
   //Recibe evento y modifica el estado
   function handleChange(event) {
@@ -57,12 +57,12 @@ function Form() {
 
   function selectedChange(event){
     //Temperaments tiene dentro event
-    // if(event.target.value === "temperaments"){
-    //   return setDogData({
-    //         ...dogData,
-    //         temperaments: [...dogData.temperaments, event.target.value]
-    //       })
-    // }
+    if(event.target.value === "temperaments"){
+      return setDogData({
+            ...dogData,
+            temperaments: [...dogData.temperaments, event.target.value]
+          })
+    }
     setDogData({
       ...dogData,
       temperaments: [...dogData.temperaments, event.target.value]
@@ -129,8 +129,8 @@ function Form() {
                 {errors.life_span && <span>{errors.life_span}</span>}
           
           <label className={style.label}>Temperaments: </label>
-            <select name="temperaments" onChange={selectedChange}>
-                {allTemperaments.map((temperament) => (<option key={temperament.name} name={temperament.name}>{temperament.name}</option>))}</select>
+            <select multiple name="temperaments" value={dogData.temperaments} onChange={selectedChange} >
+                {allTemperaments.map((temperaments) => (<option key={temperaments.name} name={temperaments.name}>{temperaments.name}</option>))}</select>
           
             <button type="Submit" className={style.create} disabled={disableHandler()} onClick={submitHandler}>Create</button>
         </div>

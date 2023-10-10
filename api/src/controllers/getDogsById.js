@@ -1,13 +1,13 @@
 // Tipo GET
 //Importaciones
-const {Dog} = require("../db")
+const {Dog, Temperaments} = require("../db")
 const axios = require("axios")
 
 const getDogsId = async (id) => {
     //Si id es mayor a 3 cifras
     if(id.toString().length > 3){
         //Busco BD
-        const dogFromDB = [await Dog.findByPk(id)]
+        const dogFromDB = [await Dog.findByPk(id, {include: {model: Temperaments}})]
         console.log(dogFromDB);
         const dogsOk = dogFromDB.map((dog)=>{
             return {
@@ -15,7 +15,8 @@ const getDogsId = async (id) => {
                 weight: {metric: dog.weight},
                 height: {metric: dog.height},
                 life_span: dog.life_span,
-                // temperaments: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
+                //Mapeo modelo, busco el elemento que tenga el valor name 
+                temperament: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
                 //Devuelve array
             }
         })

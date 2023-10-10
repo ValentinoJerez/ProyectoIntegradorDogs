@@ -16,8 +16,12 @@ const temperaments = async () => {
     const allTemperaments = [...uniqueTemperament].map(temperament => ({
         name: temperament, //El modelo lo pide asi (name:)
     }))
-    //Agrego a BD
-    Temperaments.bulkCreate(allTemperaments)
+
+    //Busca en BD, si no tiene los temperamentos lo crea
+    const temperamentDB = await Temperaments.findAll()
+        if(!temperamentDB.length){
+      Temperaments.bulkCreate(allTemperaments)}
+    //Si no, los crea
     return allTemperaments
 }
 
