@@ -16,6 +16,8 @@ html, body {
     text-align: left; 
     max-width: 400px;
     border-radius: 10px;
+    padding: 20px; /* Ajustar según tus preferencias */
+    margin: 0 auto; 
   }
   
 .form label {

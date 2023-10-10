@@ -10,10 +10,11 @@
 }
 
 .tools {
+    max-height: 700px;
     padding: 20px;
     background-color: #417CF2;
     border-radius: 10px;
-    max-width: 800px; /* Puedes ajustar este valor según sea necesario */
+    max-width: 800px;
     width: 100%;
 }
 
@@ -36,13 +37,11 @@
 
 .input {
     max-width: 400px;
-    height: 15px;
     background-color: #05060f0a;
     border-radius: .5rem;
-    padding: 0 1rem;
+    padding: 8px 1rem;
     border: 2px solid transparent;
     font-size: 1rem;
-    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s, background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
     
 .input:hover, .input:focus, .input-group:hover .input {
