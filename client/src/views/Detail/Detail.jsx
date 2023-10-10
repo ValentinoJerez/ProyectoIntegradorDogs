@@ -20,21 +20,21 @@ function Detail(){
         return setDogs([]);
     }, []);
 
-console.log(dogs);
-
     return(
-        <div>
-            <h1>{dogs?.name}</h1>
-            <p>Id: {dogs?.id}</p>
-            <p>Peso: {dogs.weight?.metric} kg</p>
-            <p>Altura: {dogs.height?.metric} cm</p>
-            <p>Criado para: {dogs?.bred_for}</p>
-            <p>Grupo de Raza: {dogs?.breed_group}</p>
-            <p>Esperanza de vida: {dogs?.life_span}</p>
-            <p>Temperamento: {dogs?.temperament}</p>
-            <p>Origen: {dogs?.origin}</p>
-            {/* Me pregunto si hay una imagen, si no pongo una por default */}
-            <img src={dogs.reference_image_id ? `https://cdn2.thedogapi.com/images/${dogs.reference_image_id}.jpg` : ImageDefault} alt="Image Dog"/>
+        <div className={style.containerDetail}>
+            <div className={style.detail}>
+                <h1>{dogs?.name}</h1>
+                <p>Id: {dogs?.id}</p>
+                <p>Peso: {dogs.weight?.metric} kg</p>
+                <p>Altura: {dogs.height?.metric} cm</p>
+                <p>Criado para: {dogs?.bred_for}</p>
+                <p>Grupo de Raza: {dogs?.breed_group}</p>
+                <p>Esperanza de vida: {dogs?.life_span}</p>
+                <p>Temperamento: {dogs?.temperament}</p>
+                <p>Origen: {dogs?.origin}</p>
+                {/* Me pregunto si hay una imagen, si no pongo una por default */}
+                <img className={style.image} src={dogs.reference_image_id ? `https://cdn2.thedogapi.com/images/${dogs.reference_image_id}.jpg` : ImageDefault} alt="Image Dog"/>
+            </div>
         </div>
     )
 }
