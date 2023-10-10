@@ -8,30 +8,5 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background-color: inherit;
   }
-  
-  .form {
-    text-align: left; 
-    max-width: 400px;
-    border-radius: 10px;
-    padding: 20px; /* Ajustar según tus preferencias */
-    margin: 0 auto; 
-  }
-  
-.form label {
-    display: block;
-    margin-bottom: 8px;
-}
-  
-.form input {
-    width: 800px;
-    padding: 8px;
-    margin-bottom: 12px;
-}
-  
-.form button {
-    margin-top: 5px;
-    padding: 8px 16px;
-} 

@@ -6,13 +6,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 105vh;
+    background-color: #417CF2;
 }
 
 .tools {
-    max-height: 700px;
+    max-height: 800px;
     padding: 20px;
-    background-color: #417CF2;
     border-radius: 10px;
     max-width: 800px;
     width: 100%;
@@ -37,6 +37,7 @@
 
 .input {
     max-width: 400px;
+    /* height: 15px; */
     background-color: #05060f0a;
     border-radius: .5rem;
     padding: 8px 1rem;
@@ -56,6 +57,7 @@
 /* Create */
 .create {
     padding: 12.5px 30px;
+    margin-top: 5px;
     border: 0;
     border-radius: 100px;
     background-color: #2ba8fb;

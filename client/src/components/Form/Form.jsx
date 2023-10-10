@@ -96,7 +96,6 @@ function Form() {
 
   return (
     <div className={style.containerForm}>
-      <div className={style.tools}>
       <form>
         <div className={style.inputGroup}>
           <label className={style.label}>Name: </label>
@@ -135,7 +134,6 @@ function Form() {
             <button type="Submit" className={style.create} disabled={disableHandler()} onClick={submitHandler}>Create</button>
         </div>
         </form>
-      </div>
     </div>
   );
 }
