@@ -6,7 +6,8 @@ function About(){
     return (
         <div>
             <h1>Hola, mi nombre es Valentino Jerez.</h1>
-            <p><strong>Desarrollador web full stack</strong>, con experiencia en el mundo de la programación.</p>
+            <h3><strong>Estudiante de desarrollo web full stack</strong></h3>
+            <p></p>
             
             <div className={style.buttonContainer}>
 
