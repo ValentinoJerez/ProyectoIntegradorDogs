@@ -25,13 +25,13 @@ function Detail(){
             <div className={style.detail}>
                 <h1>{dogs?.name}</h1>
                 <p>Id: {dogs?.id}</p>
-                <p>Peso: {dogs.weight?.metric} kg</p>
-                <p>Altura: {dogs.height?.metric} cm</p>
-                <p>Criado para: {dogs?.bred_for}</p>
-                <p>Grupo de Raza: {dogs?.breed_group}</p>
-                <p>Esperanza de vida: {dogs?.life_span}</p>
-                <p>Temperamento: {dogs?.temperament}</p>
-                <p>Origen: {dogs?.origin}</p>
+                <p>Weight: {dogs.weight?.metric} kg</p>
+                <p>Height: {dogs.height?.metric} cm</p>
+                <p>Breed for: {dogs?.bred_for}</p>
+                <p>Breed group: {dogs?.breed_group}</p>
+                <p>Life span: {dogs?.life_span}</p>
+                <p>Temperament: {dogs?.temperament}</p>
+                <p>Origin: {dogs?.origin}</p>
                 {/* Me pregunto si hay una imagen, si no pongo una por default */}
                 <img className={style.image} src={dogs.reference_image_id ? `https://cdn2.thedogapi.com/images/${dogs.reference_image_id}.jpg` : ImageDefault} alt="Image Dog"/>
             </div>
