@@ -19,7 +19,10 @@ function Form() {
     weight: "",
     weightMin: "",
     weightMax: "",
+    breed_for: "",
+    breed_group: "",
     life_span: "",
+    origin: "",
     temperaments: [],
   });
 
@@ -30,7 +33,10 @@ function Form() {
     heightMax: "",
     weightMin: "",
     weightMax: "",
+    breed_for: "",
+    breed_group: "",
     life_span: "",
+    origin: "",
     temperaments: [],
   });
 
@@ -125,7 +131,7 @@ function Form() {
           
           <label className={style.label}><h3>Life Span:</h3></label>
           <input name="life_span" value={dogData.life_span} className={style.input} onChange={handleChange}/>
-                {errors.life_span && <span>{errors.life_span}</span>}
+                {errors.life_span && <span>{errors.life_span}</span>}   
           
           <label className={style.label}><h3>Temperaments:</h3></label>
             <select multiple name="temperaments" value={dogData.temperaments} onChange={selectedChange} >

@@ -5,6 +5,7 @@ import Home from "../src/views/Home/Home"
 import Detail from "../src/views/Detail/Detail"
 import Create from "./views/Create/Create"
 import About from "../src/views/About/About"
+import ErrorPage from "./views/ErrorPage/ErrorPage"
 
 import NavBar from "./components/NavBar/NavBar"
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Detail/:id" element={<Detail/>}/>
         <Route path="/Create" element={<Create/>}/>
         <Route path="/About" element={<About/>}/>
+        <Route path="*" element={<ErrorPage/>}/>
       </Routes>
     </div>
   )
