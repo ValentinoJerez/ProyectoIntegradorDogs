@@ -11,14 +11,13 @@ function Filters(){
     const dispatch = useDispatch(); //Envio action al store
 
     function filterApi_Db(event){
-        //Si es base de datos o api
         const value = event.target.value;
         dispatch(filterApiDb(value))
     }
 
     function filterTemperament(event){
         const selectedValue = event.target.value;
-        console.log(selectedValue);
+        //Actualiza estado
         setSelectedTemperament(selectedValue);
         dispatch(filterTemperaments(selectedValue))
     }
@@ -33,17 +32,21 @@ function Filters(){
     return(
         <div className={style.selectContainer}>
             <select placeholder="Filter" onChange={filterApi_Db}>
+                <option value="Filter">Filter</option>
                 <option value="Api">Api</option>
                 <option value="Base de Datos">Base de Datos</option>
             </select>
             <select placeholder="FilterTemperament" onChange={filterTemperament}>
+                <option value="FilterTemperament">FilterTemperament</option>
                 {allTemperaments.map((temperament) => (<option value={temperament.name} key={temperament.name} name={temperament.name}>{temperament.name}</option>))}
             </select>
             <select placeholder="Order" onChange={orderHandler}>
+                <option value="Order">Order</option>
                 <option value="Ascendente">A-Z</option>
                 <option value="Descendente">Z-A</option>
             </select>
             <select placeholder="Order Peso" onChange={orderPesoHandler}>
+                <option value="OrderPeso">Order Peso</option>
                 <option value="Mayor Peso">Mayor Peso</option>
                 <option value="Menor Peso">Menor Peso</option>
             </select>

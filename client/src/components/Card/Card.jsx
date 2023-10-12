@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import DefaultImage from "../../assets/IMG_20181222_172509.jpg"
 import style from "../Card/Card.module.css"
 
-function Card({ dogs }){
+function Card({dogs}){
     //Informacion
     const {name, weight, temperament, reference_image_id} = dogs;
     const navigate = useNavigate();

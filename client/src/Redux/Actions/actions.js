@@ -36,7 +36,6 @@ export const createDog = (dogData) => {
   return async function(dispatch){
   try {
     const response = await axios.post(`http://localhost:3001/dogs`, dogData);
-    console.log(response.data);
     alert("Creado")
     return dispatch({
       type: CREATE_DOG,

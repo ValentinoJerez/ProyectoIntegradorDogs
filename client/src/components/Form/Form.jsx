@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom"
 
-import { createDog, getTemperaments } from "../../Redux/Actions/actions";
+import { createDog } from "../../Redux/Actions/actions";
 
 import validar from "../../Helpers/validation";
 
 import style from "../Form/Form.module.css"
 
 function Form() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state?.temperaments); //Estado global
   //Almaceno informacion
@@ -19,10 +21,7 @@ function Form() {
     weight: "",
     weightMin: "",
     weightMax: "",
-    breed_for: "",
-    breed_group: "",
     life_span: "",
-    origin: "",
     temperaments: [],
   });
 
@@ -33,19 +32,9 @@ function Form() {
     heightMax: "",
     weightMin: "",
     weightMax: "",
-    breed_for: "",
-    breed_group: "",
     life_span: "",
-    origin: "",
     temperaments: [],
   });
-
-  console.log(dogData.temperaments);
-
-  //Al iniciar trae los temperamentos
-  // useEffect(()=>{
-  //   dispatch(getTemperaments())
-  // }, [])
 
   //Recibe evento y modifica el estado
   function handleChange(event) {
@@ -79,7 +68,7 @@ function Form() {
   function disableHandler() {
     let disabled = false;
     for (let error in errors) {
-      if (errors[error] === "") {
+      if (errors[error] !== "") {
         disabled = false;
       } else {
         disabled = true;
@@ -90,14 +79,17 @@ function Form() {
   }
 
   //Funcion submit
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
+    window.scrollTo(0,0)
     //Despacha a una action la data de los input
-    dispatch(createDog({
+    await dispatch(createDog({
       ...dogData,
       height: { metric: `${dogData.heightMin} - ${dogData.heightMax}`},
       weight: { metric: `${dogData.weightMin} - ${dogData.weightMax}`}
     }));
+    navigate("/Home")
+
   }
 
   return (
@@ -137,7 +129,7 @@ function Form() {
             <select multiple name="temperaments" value={dogData.temperaments} onChange={selectedChange} >
                 {allTemperaments.map((temperaments) => (<option key={temperaments.name} name={temperaments.name}>{temperaments.name}</option>))}</select>
           
-            <button type="Submit" className={style.create} disabled={disableHandler()} onClick={submitHandler}>Create</button>
+            <button type="Submit" disabled={disableHandler()} className={style.create} onClick={submitHandler}>Create</button>
         </div>
         </form>
     </div>
@@ -145,3 +137,5 @@ function Form() {
 }
 
 export default Form;
+
+// 

@@ -11,7 +11,8 @@ import Filters from "../../components/Filters/Filters";
 import style from "../Home/Home.module.css"
 
 function Home(){
-    const dispatch = useDispatch(); //Envio action al store
+    //Envia action al store
+    const dispatch = useDispatch(); 
     const allDogs = useSelector((state) => state?.allDogsCopy) //Estado global copia
     
     //Paginado
@@ -26,13 +27,9 @@ function Home(){
     //GetAll
     useEffect(()=>{
         dispatch(getInfoDogs())
-        //Desmotar componente, limpiar estado 
-        // return (()=>{
-        //     clearDetail()
-        // })
     }, [dispatch])
 
-    //Al iniciar trae los temperamentos
+    //Trae los temperamentos
     useEffect(()=>{
         dispatch(getTemperaments())
     }, [])

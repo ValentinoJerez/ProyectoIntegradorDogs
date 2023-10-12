@@ -3,20 +3,15 @@ import { CREATE_DOG, FILTER_API_BD, FILTER_TEMPERAMENTS, GET_DOGS, GET_DOGS_BY_N
 
 //Estado inicial
 let initialState = {allDogs: [], allDogsCopy: [], temperaments: [],  filteredDogs: []};
-// temperamentsCopy: [],
 
-// Reducer 
 function rootReducer(state = initialState, action){
-    //Switch
     switch(action.type){
-        //Traer todos los perros
         case GET_DOGS:
             return {
                 ...state,
                 allDogsCopy: action.payload, //Renderizo
                 allDogs: action.payload
             }
-        //Buscar por nombre
         case GET_DOGS_BY_NAME:
             return {
                 ...state,
@@ -34,35 +29,36 @@ function rootReducer(state = initialState, action){
             }
         case FILTER_TEMPERAMENTS:
             const copyDogs = [...state.allDogs]
-
-            console.log(copyDogs);
-            console.log("payload", action.payload);
+            // if(action.payload === "FilterTemperament"){
+            //     copyDogs = state.allDogs
+            // } 
             const response = [...copyDogs.filter((dog) => {
                 return dog.temperament &&  dog.temperament.split(',').map(item => item.trim()).includes(action.payload);
               })]
-            console.log("response", response);
             return {
                 ...state,
                 allDogsCopy: response
             }
         case FILTER_API_BD:
             let filter;
+            // if(action.payload === "Filter"){
+            //     filter = state.allDogs
+            // }
             if(action.payload === "Api"){
                 filter = state.allDogs.filter(dog => dog.id.toString().length < 4 )
             } else if (action.payload === "Base de Datos"){
                 filter = state.allDogs.filter(dog => dog.id.toString().length > 4)
             }
-            //if action.payload es api 
-            //state.alldogs.filter(quiero tener todos los perros que dog.id-toString.length(sea menor a 4))
-            //si es base d datos que el filter(sea mayor)
             return {
                 ...state,
                 allDogsCopy: [...filter]
             }
 
-        //Orden 
         case ORDER:
             let orden;
+            // if(action.payload === "Order"){
+            //     orden = state.allDogs
+            // }
             if(action.payload === "Ascendente"){
                 orden = state.allDogsCopy.sort((a,b) => a.id > b.id ? 1 : -1);
             } else if(action.payload === "Descendente"){
@@ -74,7 +70,9 @@ function rootReducer(state = initialState, action){
             }
         case ORDER_PESO:
             let ordenPeso;
-            console.log(state.allDogsCopy);
+            // if(action.payload === "Order Peso"){
+            //     ordenPeso = state.allDogsCopy
+            // }
             if(action.payload === "Mayor Peso"){
             ordenPeso = [...state.allDogsCopy].sort((a, b) => {
             const weightA = parseInt(a.weight.metric.split(' - ')[1]);
@@ -88,10 +86,10 @@ function rootReducer(state = initialState, action){
             return weightA - weightB;
             });
         }
-    return {
-        ...state,
-        allDogsCopy: ordenPeso
-    }
+            return {
+            ...state,
+            allDogsCopy: ordenPeso
+        }
 
         default:
             return state;

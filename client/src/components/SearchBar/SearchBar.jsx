@@ -19,18 +19,14 @@ function SearchBar({setCurrentPage}){
     
     //Search filtro BackEnd
     async function submitHandler(event){
-        event.preventDefault()
-        
-        try {
+        event.preventDefault() 
             const response = await dispatch(getByName(searchRaza));
+            //Verifica que contenga algo
             if(response.payload.length === 0){
                 setErrorMessage(`No hay raza con el nombre "${searchRaza}"`);
             } else {
                 setErrorMessage("");
             }
-        } catch (error) {
-            console.error("Error al buscar por nombre:", error);
-        }
         //Limpia estado
         setSearchRaza("")
         setCurrentPage(0);
