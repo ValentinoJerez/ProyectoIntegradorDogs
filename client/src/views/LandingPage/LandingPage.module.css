@@ -1,9 +1,23 @@
 .container{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.leftContent {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
+    margin-left: 45px;
+}
+
+
+.text{
+    font-size: 2em;
+    color: #264d9c;
 }
 
 /* Button Enter */
@@ -70,6 +84,6 @@
 }
 
 .img{
-    width: 520px;
+    width: 660px;
     border-radius: 10px;
 }
