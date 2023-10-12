@@ -68,7 +68,7 @@ function Form() {
   function disableHandler() {
     let disabled = false;
     for (let error in errors) {
-      if (errors[error] !== "") {
+      if (error === "") {
         disabled = false;
       } else {
         disabled = true;

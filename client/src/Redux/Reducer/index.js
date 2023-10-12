@@ -29,21 +29,21 @@ function rootReducer(state = initialState, action){
             }
         case FILTER_TEMPERAMENTS:
             const copyDogs = [...state.allDogs]
-            // if(action.payload === "FilterTemperament"){
-            //     copyDogs = state.allDogs
-            // } 
-            const response = [...copyDogs.filter((dog) => {
+            let response = [...copyDogs.filter((dog) => {
                 return dog.temperament &&  dog.temperament.split(',').map(item => item.trim()).includes(action.payload);
-              })]
+            })]
+            if(action.payload === "FilterTemperament"){
+                response = state.allDogs
+            } 
             return {
                 ...state,
                 allDogsCopy: response
             }
         case FILTER_API_BD:
             let filter;
-            // if(action.payload === "Filter"){
-            //     filter = state.allDogs
-            // }
+            if(action.payload === "Filter"){
+                filter = state.allDogs
+            }
             if(action.payload === "Api"){
                 filter = state.allDogs.filter(dog => dog.id.toString().length < 4 )
             } else if (action.payload === "Base de Datos"){
@@ -53,26 +53,26 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allDogsCopy: [...filter]
             }
-
         case ORDER:
             let orden;
-            // if(action.payload === "Order"){
-            //     orden = state.allDogs
-            // }
+            if(action.payload === "Order"){
+                orden = state.allDogs
+            }
             if(action.payload === "Ascendente"){
-                orden = state.allDogsCopy.sort((a,b) => a.id > b.id ? 1 : -1);
-            } else if(action.payload === "Descendente"){
-                orden = state.allDogsCopy.sort((a,b) => a.id < b.id ? 1 : -1);
+                orden = [...state.allDogsCopy].sort((a,b) => a.id > b.id ? 1 : -1);
+            } 
+             if(action.payload === "Descendente"){
+                orden = [...state.allDogsCopy].sort((a,b) => a.id < b.id ? 1 : -1);
             }
             return {
                 ...state,
-                allDogsCopy: [...orden]
+                allDogsCopy: orden
             }
         case ORDER_PESO:
             let ordenPeso;
-            // if(action.payload === "Order Peso"){
-            //     ordenPeso = state.allDogsCopy
-            // }
+            if(action.payload === "OrderPeso"){
+                ordenPeso = state.allDogs
+            }
             if(action.payload === "Mayor Peso"){
             ordenPeso = [...state.allDogsCopy].sort((a, b) => {
             const weightA = parseInt(a.weight.metric.split(' - ')[1]);
