@@ -1,4 +1,3 @@
-//Importaciones
 const create = require("../controllers/createDog")
 
 const createDog = async (req, res) => {

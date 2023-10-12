@@ -1,8 +1,6 @@
-//Import
 const getDogsId = require ("../controllers/getDogsById")
 
 const getDogsById = async (req, res) => {
-    console.log("hola");
     try {
         const {idRaza} = req.params;
         const dog = await getDogsId(idRaza);

@@ -8,23 +8,21 @@ const getDogsId = async (id) => {
     if(id.toString().length > 3){
         //Busco BD
         const dogFromDB = [await Dog.findByPk(id, {include: {model: Temperaments}})]
-        console.log(dogFromDB);
         const dogsOk = dogFromDB.map((dog)=>{
             return {
                 name: dog.name,
                 weight: {metric: dog.weight},
                 height: {metric: dog.height},
                 life_span: dog.life_span,
-                //Mapeo modelo, busco el elemento que tenga el valor name 
+                //Mapeo modelo, busco el elemento que tenga el valor name
                 temperament: dog.Temperaments.map(element => element.dataValues.name).join(", ").trim()
-                //Devuelve array
             }
         })
         return dogsOk[0];
     } 
     //Busco Api
     const response = await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`) 
-    const dogFromApi = response.data //Destructuring
+    const dogFromApi = response.data
     //Si no devuelvo de la API
     return dogFromApi;
 }

@@ -1,15 +1,7 @@
-// Tipo POST
-//Importaciones
 const {Dog, Temperaments} = require("../db")
 
 const create = async (name, weight, height, life_span, temperaments) => {
-    console.log(name, weight, height, life_span);
-    const dog = {
-        name,
-        weight,
-        height,
-        life_span,
-    }
+    const dog = {name, weight, height, life_span}
     const response = await Dog.create({
         name,
         weight: dog.weight.metric,

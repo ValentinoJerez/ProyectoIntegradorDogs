@@ -5,10 +5,10 @@ const axios = require("axios")
 
 const get = async () => {
         //Busco en BD, perros y sus temperamentos
-        const dogsDB = await Dog.findAll({
+        const dogs = await Dog.findAll({
                 include: {model: Temperaments}    
         })
-        const dogsOk = dogsDB.map((dog)=>{
+        const dogsBD = dogs.map((dog)=>{
                 return {
                         id: dog.id,
                         name: dog.name,
@@ -22,7 +22,7 @@ const get = async () => {
         const response = await axios.get("https://api.thedogapi.com/v1/breeds")
         const dogsFromApi = response.data
         //Devuelvo ambos
-        return dogsOk.concat(dogsFromApi);
+        return dogsBD.concat(dogsFromApi);
 }
 
 module.exports = get;

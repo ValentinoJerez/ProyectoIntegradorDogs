@@ -1,4 +1,3 @@
-//Import 
 const getDogsName = require("../controllers/getDogsByName")
 
 const getDogsByName = async (req, res) => {

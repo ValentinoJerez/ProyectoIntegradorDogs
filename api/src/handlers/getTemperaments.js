@@ -1,4 +1,3 @@
-//Import 
 const temperaments = require("../controllers/getTemperaments")
 
 const getTemperaments = async (req, res) => {
