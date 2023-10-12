@@ -6,9 +6,9 @@ import { order, filterApiDb, filterTemperaments, orderPeso } from "../../Redux/A
 import style from "../Filters/Filters.module.css"
 
 function Filters(){
-    const allTemperaments = useSelector((state)=> state?.temperaments) 
+    const allTemperaments = useSelector((state)=> state?.temperaments);
     const [selectedTemperament, setSelectedTemperament] = useState("");
-    const dispatch = useDispatch(); //Envio action al store
+    const dispatch = useDispatch();
 
     function filterApi_Db(event){
         const value = event.target.value;

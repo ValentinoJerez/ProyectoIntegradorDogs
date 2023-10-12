@@ -11,9 +11,7 @@ function SearchBar({setCurrentPage}){
     const [errorMessage, setErrorMessage] = useState("");
     
     function changeHandler(event){
-        //No resetea la pagina
         event.preventDefault()
-        //Setea 
         setSearchRaza(event.target.value.toLowerCase())
     }
     

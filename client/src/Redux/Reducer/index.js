@@ -59,10 +59,10 @@ function rootReducer(state = initialState, action){
                 orden = state.allDogs
             }
             if(action.payload === "Ascendente"){
-                orden = [...state.allDogsCopy].sort((a,b) => a.id > b.id ? 1 : -1);
+                orden = [...state.allDogsCopy].sort((a,b) => a.name.localeCompare(b.name));
             } 
              if(action.payload === "Descendente"){
-                orden = [...state.allDogsCopy].sort((a,b) => a.id < b.id ? 1 : -1);
+                orden = [...state.allDogsCopy].sort((a,b) => b.name.localeCompare(a.name));
             }
             return {
                 ...state,
