@@ -4,10 +4,9 @@ import style from "../About/About.module.css"
 
 function About(){
     return (
-        <div>
+        <div className={style.About}>
             <h1>Hola, mi nombre es Valentino Jerez.</h1>
             <h3><strong>Estudiante de desarrollo web full stack</strong></h3>
-            <p></p>
             
             <div className={style.buttonContainer}>
 
