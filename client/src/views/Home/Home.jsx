@@ -50,7 +50,7 @@ function Home(){
     return (
         <div className={style.containerHome}>
             <SearchBar setCurrentPage={setCurrentPage}/>
-            <Filters />
+            <Filters currentPage={setCurrentPage}/>
             <Cards allDogs={cardDogs}/>
             <Paginado totalPages={totalPages} currentPage={currentPage} cardDogs={cardDogs} nextPage={nextPage} prevPage={prevPage} />
         </div>

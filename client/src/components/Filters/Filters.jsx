@@ -6,6 +6,7 @@ import { order, filterApiDb, filterTemperaments, orderPeso } from "../../Redux/A
 import style from "../Filters/Filters.module.css"
 
 function Filters(){
+    const [currentPage, setCurrentPage] = useState(0);
     const allTemperaments = useSelector((state)=> state?.temperaments);
     const [selectedTemperament, setSelectedTemperament] = useState("");
     const dispatch = useDispatch();
@@ -19,7 +20,8 @@ function Filters(){
         const selectedValue = event.target.value;
         //Actualiza estado
         setSelectedTemperament(selectedValue);
-        dispatch(filterTemperaments(selectedValue))
+        dispatch(filterTemperaments(selectedValue));
+        setCurrentPage(1);
     }
 
     function orderHandler(event){
