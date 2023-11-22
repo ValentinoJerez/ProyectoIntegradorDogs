@@ -30,4 +30,4 @@
 3. Configura la base de datos PostgreSQL.
 4. Ejecuta la aplicación con `npm run dev`.
 
-¡Disfruta explorando el maravilloso mundo de las razas de perros con Doggo App! 🐶✨
+¡Disfruta explorando el maravilloso mundo de las razas de perros con Dog Breeds App! 🐶✨
